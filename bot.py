@@ -14,6 +14,7 @@ def send_data_to_telegram():
         with open(json_file, 'r', encoding='utf-8') as f:
             data = json.load(f)
 
+    global today
     today = date.today()
     today_string = today.strftime("%d-%m-%Y")
 
@@ -21,6 +22,8 @@ def send_data_to_telegram():
         link = item['Link']
         event = item['Title']
         event_date = item['Date']
+
+        print(event_date)
 
         if today_string == event_date:
             message = f"Title: {event}\nDate: {event_date}\nLink: {link}"
@@ -35,5 +38,6 @@ def send_data_to_telegram():
 
 if __name__ == "__main__":
     send_data_to_telegram()
+
 
 
