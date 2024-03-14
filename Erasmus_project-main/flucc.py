@@ -3,7 +3,6 @@ import json
 import time
 
 def send_data_to_telegram():
-    # List of JSON files
     json_file = 'flucc/flucc/spiders/oFlucc.json'
 
     # Load JSON file
