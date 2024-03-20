@@ -1,3 +1,5 @@
+#sends only new messages, not spam
+
 import asyncio
 from telethon import TelegramClient
 import json
