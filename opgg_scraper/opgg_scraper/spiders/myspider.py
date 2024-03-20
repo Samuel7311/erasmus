@@ -12,6 +12,7 @@ class OPGGSpider(scrapy.Spider):
                 'overwrite': True,  # If the file already exists, it will overwrite it
             },
         },
+
     }
 
     def parse(self, response):

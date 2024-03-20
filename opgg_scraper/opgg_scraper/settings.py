@@ -12,9 +12,15 @@ BOT_NAME = "opgg_scraper"
 SPIDER_MODULES = ["opgg_scraper.spiders"]
 NEWSPIDER_MODULE = "opgg_scraper.spiders"
 
+DOWNLOADER_MIDDLEWARES = {
+        'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
+        'scrapy.downloadermiddlewares.retry.RetryMiddleware': None,
+        'scrapy_fake_useragent.middleware.RandomUserAgentMiddleware': 400,
+        'scrapy_fake_useragent.middleware.RetryUserAgentMiddleware': 401,
+    }
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = "opgg_scraper (+http://www.yourdomain.com)"
+USER_AGENT = "USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36'"
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
