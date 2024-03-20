@@ -3,9 +3,8 @@ import json
 import time
 from datetime import date
 
-
 def daswerk():
-    json_file = 'daswerk/erasmus/spiders/oDaswerk.json'
+    json_file = ('./oDaswerk.json')
 
     with open(json_file, 'r', encoding='utf-8') as f:
         data = json.load(f)
@@ -17,11 +16,11 @@ def daswerk():
     for item in data:
         link = item['Link']
         event = item['Title']
-        event_date = item['Date']
 
-        year = event_date[-4:]
-        month = event_date[-9:-6]
-        day = event_date[-24:-22]
+        day = ['Day']
+        month = ['Month']
+        year = "2024"
+        event_date = day + month
 
         month_mapping = {
             'Jan': '01',
@@ -40,19 +39,20 @@ def daswerk():
         month_abbreviation = (month)
         month_number = month_mapping.get(month_abbreviation)
 
-        together = day + "-" + month_number + "-" + year
+        together = day + "" + month_number + "-" + year
 
         if today_string == together:
             message = f"Title: {event}\nDate: {event_date}\nLink: {link}"
 
             # Send message to Telegram
             response = requests.post(
-                'https://api.telegram.org/bot7071671373:AAF0U60pGQTFOlkppeyaxkhXUbM-cs-1qdU/sendMessage',
-                json={'chat_id': '-4176067898', 'text': message}
+                'https://api.telegram.org/bot6940812493:AAFt3gHuNQ6LeRXnGMOTRrE4QEZJxs60eBI/sendMessage',
+                json={'chat_id': '-1002145717073', 'text': message}
             )
             # Pause between sending messages
             time.sleep(1)
-
+if __name__ == "__main__":
+        daswerk()
 
 def flex():
     json_file = 'flex/flex/spiders/oFlex.json'
@@ -103,7 +103,6 @@ def flex():
             )
             # Pause between sending messages
             time.sleep(1)
-
 
 def flucc():
     json_file = 'flucc/flucc/spiders/oFlucc.json'
@@ -170,6 +169,13 @@ def goabase():
         link = item['Link']
         event = item['Title']
         event_date = item['Date']
+        event_location = item.get('Location', '')
+
+        if event_location is None:
+            continue
+
+        if 'Austria' not in event_location:
+            continue
 
         year = event_date[-9:-7]
         month = event_date[-13:-10]
@@ -237,7 +243,6 @@ def goodnight():
             )
             # Pause between sending messages
             time.sleep(1)
-
 
 if __name__ == "__main__":
     daswerk()

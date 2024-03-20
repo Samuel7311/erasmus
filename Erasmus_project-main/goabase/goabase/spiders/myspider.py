@@ -28,9 +28,11 @@ class MySpider(scrapy.Spider):
         # Extracting the title from the party page
         title = response.css('span.block.strong.over-hidden::text').get()
         date_time = response.xpath('//*[@id="inner-content"]/div[1]/div[1]/div[1]/div[2]/a[1]/text()').get()
-        # Yielding the result with 'Link', 'Title', and 'Date'   fx-grw1 m-b2 m-l10 fs108
+        location = response.css('a.perm-link[href*=Austria]::text').get()
+
         yield {
             'Link': response.url,
             'Title': title,
             'Date': date_time,
+            'Location': location,
         }

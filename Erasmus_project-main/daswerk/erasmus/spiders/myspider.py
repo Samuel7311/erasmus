@@ -1,5 +1,5 @@
 import scrapy
-
+import re
 
 class MySpider(scrapy.Spider):
     name = 'myspider'
@@ -30,9 +30,25 @@ class MySpider(scrapy.Spider):
         title = response.css('p.main--header-title::text').get()
         date = response.css('li::text').get()
 
-        # Yielding the result with 'Link' and 'Title'
+        # Process date format
+        day, month = self.extract_day_and_month(date)
+
         yield {
             'Link': response.url,
             'Title': title,
-            'Date': date,
+            'Day': day,
+            'Month': month,
         }
+
+    def extract_day_and_month(self, date_str):
+        # Regular expression to match the date format
+        date_pattern = re.compile(r'(\d{1,2})\.?\s*([A-Za-zäöüß]{3})')
+
+        # Search for the day and the first three letters of the month in the string
+        match = date_pattern.search(date_str)
+        if match:
+            day = match.group(1)
+            month = match.group(2)
+            return day, month
+        else:
+            return None, None
