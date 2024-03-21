@@ -1,0 +1,44 @@
+CODES
+bot.py - there are all clubs codes, in server it is bot-today.py and thats basically codes that will send events in everyday channel by date
+telegram.py - there is code that fix spams, it only sends new events after the spider scrapes the website, it is only for flucc now, not sure if it works right
+combined_data.py - code that is putting all the jsons in one json
+
+SERVER
+- on the server are working bots (bot-today.py) that send events into everyday channel
+- the bot.py codes are working but it sends all the data into telegram, basically spam, only flucc should send only new events
+
+
+Daswerk
+https://t.me/+Gz-LKFoF-2tmNDNk
+id '-1002073651428'
+bot token '6951369214:AAELziJ42bDOj5Vp1lPQYXG0jUHl7VWksVY'
+
+
+Flex
+https://t.me/+TNgketWJajtmNWU0
+id '-1002008215495'
+bot token '6247800131:AAHlt_WrNumcxb9ma_kw7y1Fl6sb5Ys868c'
+
+
+Flucc
+https://t.me/+lnSvNoZFu6pmOGE0
+id '-4176067898'
+bot token '7071671373:AAF0U60pGQTFOlkppeyaxkhXUbM-cs-1qdU'
+
+
+Goabase
+https://t.me/+Od4qt4YV0GoxMjA0
+id '-1002133716253'
+bot token '6949851168:AAFoFBXVImri_qb_nJHXlwdlzfLEWStydI4'
+
+
+Goodnight
+https://t.me/+Nr3ykIz8gTxkYjc0
+id '-1002103414773'
+bot token '6759717427:AAHmU3MPu5UzT_jp1YQklsfz3X_ErtXBgk'
+
+
+Everyday
+t.me/everydaychatb
+id '-1002145717073'
+bot token '6940812493:AAFt3gHuNQ6LeRXnGMOTRrE4QEZJxs60eBI'
